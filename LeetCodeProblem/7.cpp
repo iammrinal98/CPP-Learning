@@ -3,6 +3,7 @@ https://leetcode.com/problems/reverse-integer/
 */
 
 #include<iostream>
+#include<math.h>
 using namespace std;
 
 int reverse(int n) {
@@ -10,10 +11,11 @@ int reverse(int n) {
 
     while(n!=0){
         int reminder=n%10;
-        output=output*10+reminder;
-        if(output>=INT32_MAX || output<=INT32_MIN){
+
+         if(output>INT32_MAX/10 || output<INT32_MIN/10){
             return 0;
         }
+        output=output*10+reminder;
         n=n/10;
     }
     int result=output;
